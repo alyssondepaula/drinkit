@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from './styles';
 
-const Home = () => {
+const Home = ({ navigation }) => {
   return <Container />;
 }
 
