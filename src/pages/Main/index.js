@@ -9,14 +9,14 @@ const Main = ({ navigation }) => {
   const [peso, setPeso] = useState('')
   const [user, setUser] = useState({ name: name, peso: peso})
 
-  useEffect(() => {
+   useEffect(() => {
 
     async function getUser(){
 
       try {
         const jsonValue = await AsyncStorage.getItem('@drinkituser')
         jsonValue != null 
-        ?  navigation.navigate('Home')
+        ?  navigation.navigate('Home', {  user: jsonValue })
         :  null
         
       } catch(e) {
@@ -37,8 +37,26 @@ const Main = ({ navigation }) => {
     if(3 > name.length ) {
     Alert.alert('Nome Invalido')
      return}
+
+     if(2 > peso.length ) {
+      Alert.alert('Peso Invalido')
+       return}
+
+       createaccount()
     
     }
+
+    async function createaccount(){
+
+      try {
+        const jsonValue = JSON.stringify(user)
+        await AsyncStorage.setItem('@drinkituser', jsonValue)
+        navigation.navigate('Home', {  user: jsonValue })
+
+      } catch (e) {
+        console.log(e)
+      }
+  }
 
   return <Container>
             <BoxCreate>
