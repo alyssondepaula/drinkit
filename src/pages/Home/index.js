@@ -4,17 +4,13 @@ import { Container, Text } from './styles';
 
 const Home = ({ route, navigation }) => {
 
-  const [userlogin, setUser] = useState({ name: namelogin, peso: pesologin})
+  const [userlogin, setUser] = useState({ name: 'namelogin', peso: 'pesologin'})
 
   useEffect(() => {
-
     const { user } = route.params;
     setUser(JSON.parse(user))
-   
-
-
-
   },[]);
+  
   return <Container>
           
           
