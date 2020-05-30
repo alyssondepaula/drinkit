@@ -4,16 +4,13 @@ import { Container, Text } from './styles';
 
 const Home = ({ route, navigation }) => {
 
-  const [namelogin, setName] = useState('')
-  const [pesologin, setPeso] = useState('')
   const [userlogin, setUser] = useState({ name: namelogin, peso: pesologin})
 
   useEffect(() => {
 
     const { user } = route.params;
     setUser(JSON.parse(user))
-    setName(userlogin.name)
-    setPeso(userlogin.peso)
+   
 
 
 
@@ -21,7 +18,7 @@ const Home = ({ route, navigation }) => {
   return <Container>
           
           
-          <Text> Olá {namelogin} seu peso é { pesologin } </Text>
+          <Text> Olá {userlogin.name} seu peso é { userlogin.peso } </Text>
           
 
   </Container>;
