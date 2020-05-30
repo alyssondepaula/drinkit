@@ -9,7 +9,7 @@ export const Container = styled.View`
 
 
 export const Text = styled.Text`
-color: #a6a6a6;
+color: #fff;
 font-size: 24px;
 `;
 
